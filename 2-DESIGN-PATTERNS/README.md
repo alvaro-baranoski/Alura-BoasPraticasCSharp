@@ -22,6 +22,6 @@ Os principais padrões de projeto foram definidos no livro **Design Patterns: El
 - Command
 - Interpreter
 
-Referências:
+Referências: \
 <https://www.alura.com.br/artigos/design-patterns-introducao-padroes-projeto> \
-<https://www.youtube.com/watch?v=tv-_1er1mWI> \
+<https://www.youtube.com/watch?v=tv-_1er1mWI> 
