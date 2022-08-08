@@ -91,3 +91,11 @@ Artigo sobre o pattern de camada de serviços: <https://martinfowler.com/eaaCata
 Artigo sobre o open-closed principle pelo criador do SOLID: <https://blog.cleancoder.com/uncle-bob/2014/05/12/TheOpenClosedPrinciple.html>
 
 Artigo sobre o pattern de utilização de decorators: <https://en.wikipedia.org/wiki/Decorator_pattern>
+
+## 05. Segregação de Interfaces e Liskov (_Interface Segregation Principle_ e _Liskov Substitution Principle_)
+
+Princípio da segregação de interfaces: Interfaces também precisam se preocupar com coesão e acoplamento (LEMBRAR: INTERFACE É DE OOP, NÃO DO FRONTEND).
+
+Pelo princípio da substituição de Liskov (LSP): É preciso cumprir todas as promessas que as abstrações (interfaces e classes abstratas) propõe.
+
+No exemplo o professor criou uma interface `IDao` para padronizar os nomes dos métodos implementados pelos serviços. Esta interface tinha a promessa de métodos de leitura e escrita. Porém, o service de categoria não tinha como regra de negócio a realização de escrita de novas categorias. Portanto, foi necessário segregar a interface em duas, `ICommand` para escrita e `IQuery` para leitura, de forma que os serviços herdavam apenas as interfaces que realmente iriam implementar (ou cumprir a sua promessa). 
