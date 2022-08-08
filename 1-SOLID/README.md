@@ -80,3 +80,14 @@ services.AddTransient<ILeilaoDao, LeilaoDaoComEfCore>();
 Essas refatorações pertencem ao conceito de _Dependency Inversion Principle_ (DIP). Uma das formas de exercer esse conceito é através da **injeção de dependencias**, onde fornecemos uma abstração de nossas dependências, deixando a responsabilidade para quem instancia a classe, dessa forma também estamos explicitando as dependências de uma classe através de seu construtor. Quando a classe dependente deixa de resolver as dependências diretamente e cede esse controle para outrém temos o uso do conceito **Inversão de Controle** (IoC).
 
 ## 04. Princípio do Aberto/Fechado (_Open-closed Principle_)
+Princípio que diz para manter a sua aplicação fechada para mudanças, mas aberta para extensões. Diz basicamente para criar o hábito de minimizar a alteração de código pronto. Se for necessário fazer uma alteração, é melhor criar uma outra classe que aplica essa mudança. Para os trechos de código que continuam os mesmos, o correto é utilizar **decorators** para repassar a implementação que não foi alterada para a classe antiga.
+
+Esse princípio visa manter a estabilidade de classes já criadas.
+
+Nessa aula, o professor também mostrou a utilização de _Service Layers_, uma camada arquitetural que separa as regras de negócio das camadas mais externas (interfaces de usuário, integração com outros sistemas, etc). 
+
+Artigo sobre o pattern de camada de serviços: <https://martinfowler.com/eaaCatalog/serviceLayer.html>
+
+Artigo sobre o open-closed principle pelo criador do SOLID: <https://blog.cleancoder.com/uncle-bob/2014/05/12/TheOpenClosedPrinciple.html>
+
+Artigo sobre o pattern de utilização de decorators: <https://en.wikipedia.org/wiki/Decorator_pattern>
