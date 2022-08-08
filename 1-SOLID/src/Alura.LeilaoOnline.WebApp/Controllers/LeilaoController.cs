@@ -11,10 +11,12 @@ namespace Alura.LeilaoOnline.WebApp.Controllers
     {
 
         AppDbContext _context;
+        private LeilaoDao leilaoDao;
 
         public LeilaoController()
         {
             _context = new AppDbContext();
+            leilaoDao = new LeilaoDao();
         }
 
         public IActionResult Index()
@@ -27,7 +29,7 @@ namespace Alura.LeilaoOnline.WebApp.Controllers
         [HttpGet]
         public IActionResult Insert()
         {
-            ViewData["Categorias"] = _context.Categorias.ToList();
+            ViewData["Categorias"] = leilaoDao.getCategorias();
             ViewData["Operacao"] = "Inclusão";
             return View("Form");
         }
@@ -37,11 +39,10 @@ namespace Alura.LeilaoOnline.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Leiloes.Add(model);
-                _context.SaveChanges();
+                leilaoDao.AddLeilao(model);
                 return RedirectToAction("Index");
             }
-            ViewData["Categorias"] = _context.Categorias.ToList();
+            ViewData["Categorias"] = leilaoDao.getCategorias();
             ViewData["Operacao"] = "Inclusão";
             return View("Form", model);
         }
@@ -49,9 +50,9 @@ namespace Alura.LeilaoOnline.WebApp.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            ViewData["Categorias"] = _context.Categorias.ToList();
+            ViewData["Categorias"] = leilaoDao.getCategorias();
             ViewData["Operacao"] = "Edição";
-            var leilao = _context.Leiloes.Find(id);
+            var leilao = leilaoDao.GetLeilao(id);
             if (leilao == null) return NotFound();
             return View("Form", leilao);
         }
@@ -61,11 +62,10 @@ namespace Alura.LeilaoOnline.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Leiloes.Update(model);
-                _context.SaveChanges();
+                leilaoDao.UpdateLeilao(model);
                 return RedirectToAction("Index");
             }
-            ViewData["Categorias"] = _context.Categorias.ToList();
+            ViewData["Categorias"] = leilaoDao.getCategorias();
             ViewData["Operacao"] = "Edição";
             return View("Form", model);
         }
@@ -73,37 +73,34 @@ namespace Alura.LeilaoOnline.WebApp.Controllers
         [HttpPost]
         public IActionResult Inicia(int id)
         {
-            var leilao = _context.Leiloes.Find(id);
+            var leilao = leilaoDao.GetLeilao(id);
             if (leilao == null) return NotFound();
             if (leilao.Situacao != SituacaoLeilao.Rascunho) return StatusCode(405);
             leilao.Situacao = SituacaoLeilao.Pregao;
             leilao.Inicio = DateTime.Now;
-            _context.Leiloes.Update(leilao);
-            _context.SaveChanges();
+            leilaoDao.UpdateLeilao(leilao);
             return RedirectToAction("Index");
         }
 
         [HttpPost]
         public IActionResult Finaliza(int id)
         {
-            var leilao = _context.Leiloes.Find(id);
+            var leilao = leilaoDao.GetLeilao(id);
             if (leilao == null) return NotFound();
             if (leilao.Situacao != SituacaoLeilao.Pregao) return StatusCode(405);
             leilao.Situacao = SituacaoLeilao.Finalizado;
             leilao.Termino = DateTime.Now;
-            _context.Leiloes.Update(leilao);
-            _context.SaveChanges();
+            leilaoDao.UpdateLeilao(leilao);
             return RedirectToAction("Index");
         }
 
         [HttpPost]
         public IActionResult Remove(int id)
         {
-            var leilao = _context.Leiloes.Find(id);
+            var leilao = leilaoDao.GetLeilao(id);
             if (leilao == null) return NotFound();
             if (leilao.Situacao == SituacaoLeilao.Pregao) return StatusCode(405);
-            _context.Leiloes.Remove(leilao);
-            _context.SaveChanges();
+            leilaoDao.DeleteLeilao(leilao);
             return NoContent();
         }
 
