@@ -27,3 +27,19 @@ Lista de code smells tipicos para referência:
 - <https://blog.jetbrains.com/dotnet/2018/06/18/sharpen-sense-code-smell/>
 
 Graças a experiências de outros devs, foram gerados **patterns** de desenvolvimento a serem seguidos, e também princípios de desenvolvimento, como é o caso do **SOLID**.
+
+## 02. Responsabilidade única (_single responsability principle_)
+
+Em .NET, é interessante separar os métodos de CRUD de acesso a base de dados em uma classe especializada, no exemplo o professor criou uma classe `LeilaoDao` (DAO vem de _data access object_).
+
+O objetivo de realizar essa refatoração (extrair as funcionalidades para uma classe específica) é para que, caso seja necessário alterar alguma funcionalidade destas operações, só seja necessário alterar em um único lugar.
+
+Para realizar esse tipo de refatoração, é necessário utilizar o princípio DRY - Dont Repeat Yourself.
+
+Métodos e classes devem ter uma **única responsabilidade**, ou seja, devem ser métodos coesos, de poucas linhas de código, que realizam apenas uma função. Classes devem ser criadas para atender a uma determinada demanda, e devem atender os **agentes de mudança**.
+
+Single Source of Truth: Se o código estiver bem coeso, cada parte irá possuir apenas uma responsabilidade, e apenas essa parte irá conte-la.
+
+> Gather together the things that change for the same reasons. Separate those things that change for different reasons.
+
+Artigo sobre o single responsability principle (SRP): <https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html>.
