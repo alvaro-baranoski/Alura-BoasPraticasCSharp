@@ -43,3 +43,40 @@ Single Source of Truth: Se o código estiver bem coeso, cada parte irá possuir 
 > Gather together the things that change for the same reasons. Separate those things that change for different reasons.
 
 Artigo sobre o single responsability principle (SRP): <https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html>.
+
+## 03. Inversão de dependências (_Dependency Inversion Principle_)
+
+Uma classe pode depender de classes **instáveis** e **estáveis**. Classes estáveis são aquelas que dificilmente irão mudar, como é o caso do tipo `int` ou a classe `Controller` do framework .NET. Classes estáveis, por outro lado, tendem a ter seu comportamento alterado pelo programador, como é o caso das classes `Leilao` e `LeilaoDao`.
+
+`LeilaoDao` é mais instável do que `Leilao`, pois ela também depende de outros tipos que são instáveis, como `Categoria` e `AppDbContext`. O que o professor recomendou é renomear a classe para `LeilaoDaoComEfCore` para indicar a dependência, e criar uma interface `ILeilaoDao`.
+
+Da forma como está o código, `LeilaoController` depende de `LeilaoDaoComEfCore`, que é instável:
+
+```
+ILeilaoDao _dao;
+
+public LeilaoController()
+{
+    _dao = new LeilaoDaoComEfCore();
+}
+```
+
+Para corrigir essa dependência, o .NET possui a função de injeção de dependência, da seguinte forma:
+Em `LeilaoController`:
+```
+ILeilaoDao _dao;
+
+public LeilaoController(ILeilaoDao dao)
+{
+    _dao = dao;
+}
+```
+
+E em `Program.cs`:
+```
+services.AddTransient<ILeilaoDao, LeilaoDaoComEfCore>();
+```
+
+Essas refatorações pertencem ao conceito de _Dependency Inversion Principle_ (DIP). Uma das formas de exercer esse conceito é através da **injeção de dependencias**, onde fornecemos uma abstração de nossas dependências, deixando a responsabilidade para quem instancia a classe, dessa forma também estamos explicitando as dependências de uma classe através de seu construtor. Quando a classe dependente deixa de resolver as dependências diretamente e cede esse controle para outrém temos o uso do conceito **Inversão de Controle** (IoC).
+
+## 04. Princípio do Aberto/Fechado (_Open-closed Principle_)
