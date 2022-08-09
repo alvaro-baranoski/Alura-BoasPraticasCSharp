@@ -62,3 +62,10 @@ Sempre que percebemos que temos comportamentos que podem ser compostos por compo
 O **State** é um design pattern utilizado quando a aplicação possui muitos estados que possuem certas regras de negócio, e esses estados tem uma ordem de transição que deve ser seguida (no caso do exemplo, em aprovação -> aprovado/reprovado -> finalizado).
 
 A principal situação que faz emergir o Design Pattern State é a necessidade de implementação de uma máquina de estados. Geralmente, o controle das possíveis transições são vários e complexos, fazendo com que a implementação não seja simples. O State auxilia a manter o controle dos estados simples e organizados através da criação de classes que representem cada estado e saiba controlar as transições.
+
+### Aula 06
+O padrão **Builder** é utilizado quando se tem uma classe que possui muitos atributos que precisam ser repassados através de um construtor. Ele permite que o programa cliente utilize um encadeamento de métodos para repassar todos os atributos (similar a setters, pode esconder regras de negócio), e ao final, tem o método `build` que permite gerar o objeto final.
+
+Sempre que tivermos um objeto complexo de ser criado, que possui diversos atributos, ou que possui uma lógica de criação complicada, podemos esconder tudo isso em um Builder.
+
+Além de centralizar o código de criação e facilitar a manutenção, ainda facilitamos a vida das classes que precisam criar essa classe complexa, afinal a interface do Builder tende a ser mais clara e fácil de ser usada.
