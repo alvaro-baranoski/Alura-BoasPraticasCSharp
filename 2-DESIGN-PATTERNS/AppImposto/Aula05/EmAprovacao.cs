@@ -9,7 +9,7 @@ namespace AppImposto.Aula05
     {
         public void AplicaDescontoExtra(Orcamento orcamento)
         {
-            orcamento.Valor -= orcamento.Valor - 0.05;
+            orcamento.Valor -= orcamento.Valor * 0.05;
         }
 
         public void Aprova(Orcamento orcamento)
