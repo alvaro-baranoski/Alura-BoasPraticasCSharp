@@ -1,3 +1,6 @@
+namespace AppImposto.Aula01
+{
+    
 public interface Investimento 
 {
     double Calcula(Conta conta);
@@ -42,4 +45,5 @@ public class Arrojado : Investimento
         else if (chute >= 2 && chute <= 4) return conta.Saldo * 0.3;
         else return conta.Saldo * 0.006;
     }
+}
 }
