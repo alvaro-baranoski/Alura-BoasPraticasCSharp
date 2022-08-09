@@ -7,7 +7,12 @@ namespace AppImposto.Aula03
 {
     public abstract class TemplateImpostoCondicional : Imposto
     {
-        public double Calcula(Orcamento orcamento)
+        public TemplateImpostoCondicional(Imposto outroImposto) : base(outroImposto)
+        {
+            
+        }
+
+        public override double Calcula(Orcamento orcamento)
         {
             if (DeveUsarMaximaTaxacao(orcamento))
             {

@@ -7,6 +7,11 @@ namespace AppImposto.Aula03
 {
     public class ICPP : TemplateImpostoCondicional
     {
+        public ICPP(Imposto outroImposto) : base(outroImposto)
+        {
+            
+        }
+
         public override bool DeveUsarMaximaTaxacao(Orcamento orcamento)
         {
             return orcamento.Valor >= 500;
