@@ -1,21 +1,23 @@
-﻿public class TesteDeImpostos 
+﻿using AppImposto.Aula02;
+
+public class TesteDeImpostos 
 {
     static void Main(String[] args) 
     {
-        Imposto iss = new ISS();
-        Imposto icms = new ICMS();
-        Imposto iccc = new ICCC();
-        Orcamento orcamento = new Orcamento(500.0);
-        CalculadorDeImpostos calculador = new CalculadorDeImpostos();
+        CalculadorDeDescontos calculador = new CalculadorDeDescontos();
 
-        // Calculando o ISS
-        calculador.RealizaCalculo(orcamento, iss);
+        Orcamento orcamento = new Orcamento(500);
+        orcamento.AdicionaItem(new Item("CANETA", 250));
+        orcamento.AdicionaItem(new Item("LAPIS", 250));
+        orcamento.AdicionaItem(new Item("GELADEIRA", 250));
+        orcamento.AdicionaItem(new Item("MORANGO", 250));
+        orcamento.AdicionaItem(new Item("PISTACHE", 250));
+        orcamento.AdicionaItem(new Item("CHUTEIRA", 250));
 
-        // Calculando o ICMS        
-        calculador.RealizaCalculo(orcamento, icms);
+        
+        double desconto = calculador.Calcula(orcamento);
 
-        // Calculando o ICCC        
-        calculador.RealizaCalculo(orcamento, iccc);
+        Console.WriteLine(desconto);
 
     }
 }
