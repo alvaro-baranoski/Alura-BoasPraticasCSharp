@@ -1,11 +1,12 @@
 ﻿using AppImposto.Aula05;
 using AppImposto.Aula06;
+using AppImposto.Aula07;
 
 public class TesteDeImpostos 
 {
     static void Main(String[] args) 
     {
-        NotaFiscalBuilder builder = new NotaFiscalBuilder();
+        var builder = new AppImposto.Aula07.NotaFiscalBuilder();
         builder
             .ParaEmpresa("ICI")
             .ComCnpj("23.456.789/0001-12")
@@ -14,6 +15,10 @@ public class TesteDeImpostos
             .NaDataAtual()
             .ComObservacoes("uma obs qualquer");
             // ...
+
+        builder.AdicionaAcao(new EnviadorDeEmail());
+        builder.AdicionaAcao(new SalvaNoBanco());
+        builder.AdicionaAcao(new EnviadorDeSms());
 
         NotaFiscal nf = builder.Constroi();
 

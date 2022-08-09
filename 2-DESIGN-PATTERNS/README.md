@@ -69,3 +69,14 @@ O padrão **Builder** é utilizado quando se tem uma classe que possui muitos at
 Sempre que tivermos um objeto complexo de ser criado, que possui diversos atributos, ou que possui uma lógica de criação complicada, podemos esconder tudo isso em um Builder.
 
 Além de centralizar o código de criação e facilitar a manutenção, ainda facilitamos a vida das classes que precisam criar essa classe complexa, afinal a interface do Builder tende a ser mais clara e fácil de ser usada.
+
+### Aula 07
+Esta aula é sobre o padrão de projeto **Observer**. Este padrão tem por objetivo notificar ou executar a ação de alguma classe toda vez que alguma coisa específica acontece dentro do programa. Ele funciona considerando que todas as classes observadores utilizam o mesmo método (baseado em uma interface) e que este método é executado através de um for loop dentro do método que gera o evento.
+
+O Observer desacopla seu código e possibilita que seu código execute diferentes ações após algum evento. Além disso, como o código acima demonstra, criar e executar novas ações é uma tarefa fácil agora, facilitando a manutenção e evolução desse trecho de código.
+
+No exemplo, os eventos eram repassados através do método `adicionaEvento`, mas também é possível repassar essa lista de eventos pelo construtor.
+
+Podemos utilizar o Observer quando o acoplamento da nossa classe está crescendo, ou quando temos diversas ações diferentes a serem executadas após um determinado processo.
+
+Ele permite que diversas ações sejam executadas de forma transparente à classe principal, reduzindo o acoplamento entre essas ações, facilitando a manutenção e evolução do código.
