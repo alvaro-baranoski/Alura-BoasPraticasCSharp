@@ -109,3 +109,14 @@ Um possível problema deste padrão é a quantidade de memória que ele pode ocu
 Por isso, dependendo do tamanho dos seus objetos, a classe Estado pode passar a guardar não o objeto todo, mas sim somente as propriedades que mais fazem sentido.
 
 Nada impede você também de limitar a quantidade máxima de objetos no histórico que será armazenado.
+
+### Aula 11
+Quando temos expressões que devem ser avaliadas, e a transformamos em uma estrutura de dados, e depois fazemos com que a própria árvore se avalie, damos o nome de **Interpreter**.
+
+O padrão é bastante útil quando temos que implementar interpretadores para DSLs, ou coisas similares. É um padrão bem complicado, mas bastante interessante.
+
+Essa idéia do Interpreter é utilizada dentro do C# dentro da API de expressões que são utilizadas para estender o LINQ.
+
+O padrão Interpreter é geralmente útil para interpretar DSLs. É comum que, ao ler a string (como por exemplo 2+3/4), o programa transforme-a em uma estrutura de dados melhor (como as nossas classes Expressao) e aí interprete essa árvore.
+
+É realmente um padrão de projeto bem peculiar, e com utilização bem específica.
