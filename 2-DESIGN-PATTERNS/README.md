@@ -85,3 +85,16 @@ Ele permite que diversas ações sejam executadas de forma transparente à class
 Nesta aula foi demonstrado o padrão de projeto **Factory**, que é similar ao Builder, mas que tem por objetivo realizar a criação de objetos complicados dentro de sua classe, deixando essa lógica escondida de outros usuários.
 
 Usamos uma fábrica quando temos que isolar o processo de criação de um objeto em um único lugar. Essa fábrica pode descobrir como criar o objeto dentro dela própria, mas geralmente ela não precisa de muitas informações para criar o objeto.
+
+### Aula 09
+O padrão **Flyweight** é utilizado para instanciar objetos uma única vez, e estes objetos então podem ser usados em vários lugares no programa. Uma qualidade deste padrão é que é possível economizar a memória da aplicação, pois dessa forma menos objetos precisam ser instanciados.
+
+Sempre que temos uma quantidade grande de objetos similares a serem instanciados, uma boa solução é fazer cache dessas instâncias e reutilizá-la. Para isso, a implementação é geralmenta fazer uso de uma fábrica, que controla as instâncias. Esse padrão é conhecido por flyweight.
+
+Aplicações gráficas geralmente fazem uso desse padrão, já que elas tem muito objeto repetido.
+
+Outro exemplo são as strings do C#. Quando escrevemos o seguinte código no programa:
+
+`string mensagem = "Minha Mensagem";`
+
+A máquina virtual cria uma referência para um objeto do tipo string e o armazena em memória. Se em outro ponto do código tivermos outra variável do tipo string inicializada com o mesmo texto, a máquina virtual simplesmente reutiliza a mesma instância do objeto.
