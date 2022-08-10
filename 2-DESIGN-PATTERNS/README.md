@@ -39,6 +39,8 @@ O padrão Strategy é muito útil quando temos um conjunto de algoritmos similar
 
 O Strategy nos oferece uma maneira flexível para escrever diversos algoritmos diferentes, e de passar esses algoritmos para classes clientes que precisam deles. Esses clientes desconhecem qual é o algoritmo "real" que está sendo executado, e apenas manda o algoritmo rodar. Isso faz com que o código da classe cliente fique bastante desacoplado das implementações concretas de algoritmos, possibilitando assim com que esse cliente consiga trabalhar com N diferentes algoritmos sem precisar alterar o seu código.
 
+No Strategy estamos tentando implementar uma estratégia diferente para resolver um determinado problema que temos no código. Por exemplo, imagine que a aplicação precisa enviar buscas para diversos bancos de dados diferentes, nesse caso, o código que será executado em cada banco de dados será levemente diferente, mas o propósito é o mesmo: Fazer o acesso aos dados.
+
 ### Aula 2
 Agora que implementamos o **Chain of Responsibility**, temos cada uma das responsabilidades separadas em uma classe, e uma forma de unir essa corrente novamente. Veja a flexibilidade que o padrão nos deu: podemos montar a corrente da forma como quisermos, e sem muitas complicações.
 
@@ -137,3 +139,10 @@ Na implementação do bridge que fizemos nesse capítulo, podemos ver que o brid
 O nome dessa padrão de projeto, que facilita a criação de comandos, chama-se **Command**. Usamos ele quando temos que separar os comandos que serão executados do objeto que ele pertence. Um bom exemplo disso é o uso de filas de trabalho.
 
 Podemos ser criativos e usar outros padrões de projeto de acordo com o problema que temos em mãos. Podemos usar Memento para restaurar estados de objetos que foram alterados por um Command.
+
+### Aula 15
+Essa classe `GeradorDeXml` é uma classe que tem a responsabilidade de adaptar o código da API do C# para geração de XML para um código orientado a objetos que é entendido pela aplicação. Esse é um padrão de projeto chamado **Adapter**.
+
+Utilizamos o adapter quando queremos adaptar o código de um sistema legado ou de uma biblioteca para que ele trabalhe corretamente com o sistema orientado a objetos que está sendo desenvolvido.
+
+Veja que a implementação do Adapter é muito parecida com a implementação do Command e do Strategy, a diferença está realmente no propósito do padrão, o problema que está sendo resolvido.
