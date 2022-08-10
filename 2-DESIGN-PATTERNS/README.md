@@ -80,3 +80,8 @@ No exemplo, os eventos eram repassados através do método `adicionaEvento`, mas
 Podemos utilizar o Observer quando o acoplamento da nossa classe está crescendo, ou quando temos diversas ações diferentes a serem executadas após um determinado processo.
 
 Ele permite que diversas ações sejam executadas de forma transparente à classe principal, reduzindo o acoplamento entre essas ações, facilitando a manutenção e evolução do código.
+
+### Aula 08
+Nesta aula foi demonstrado o padrão de projeto **Factory**, que é similar ao Builder, mas que tem por objetivo realizar a criação de objetos complicados dentro de sua classe, deixando essa lógica escondida de outros usuários.
+
+Usamos uma fábrica quando temos que isolar o processo de criação de um objeto em um único lugar. Essa fábrica pode descobrir como criar o objeto dentro dela própria, mas geralmente ela não precisa de muitas informações para criar o objeto.
