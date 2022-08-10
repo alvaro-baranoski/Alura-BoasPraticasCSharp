@@ -120,3 +120,8 @@ Essa idéia do Interpreter é utilizada dentro do C# dentro da API de expressõe
 O padrão Interpreter é geralmente útil para interpretar DSLs. É comum que, ao ler a string (como por exemplo 2+3/4), o programa transforme-a em uma estrutura de dados melhor (como as nossas classes Expressao) e aí interprete essa árvore.
 
 É realmente um padrão de projeto bem peculiar, e com utilização bem específica.
+
+### Aula 12
+Quando temos uma árvore, e precisamos navegar nessa árvore de maneira organizada, podemos usar um **Visitor**, que foi o padrão de projeto implementado nessa aula.
+
+A finalidade do visitor dentro do código é simplesmente percorrer toda a árvore de expressão para executar alguma lógica. Nesse capítulo, ele foi utilizado para imprimir as expressões, mas ele também poderia ser utilizado para realizar cálculos com a expressão ou qualquer outra tarefa que dependa do processamento dos nós de nossa árvore de expressão.

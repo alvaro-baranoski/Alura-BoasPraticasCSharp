@@ -6,6 +6,7 @@ using AppImposto.Aula08;
 using AppImposto.Aula09;
 using AppImposto.Aula10;
 using AppImposto.Aula11;
+using AppImposto.Aula12;
 
 public class TesteDeImpostos 
 {
@@ -17,5 +18,8 @@ public class TesteDeImpostos
         IExpressao soma = new Soma(esquerda, direita);
 
         Console.WriteLine(soma.Avalia());
+
+        ImpressoraVisitor impressora = new ImpressoraVisitor();
+        soma.Aceita(impressora);
     }
 }
