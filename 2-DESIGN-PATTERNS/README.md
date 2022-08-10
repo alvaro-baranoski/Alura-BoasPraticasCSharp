@@ -98,3 +98,14 @@ Outro exemplo são as strings do C#. Quando escrevemos o seguinte código no pro
 `string mensagem = "Minha Mensagem";`
 
 A máquina virtual cria uma referência para um objeto do tipo string e o armazena em memória. Se em outro ponto do código tivermos outra variável do tipo string inicializada com o mesmo texto, a máquina virtual simplesmente reutiliza a mesma instância do objeto.
+
+### Aula 10
+Padrão de projeto **Memento**, serve quando se é necessário salvar estados anteriores de um objeto, similar a funcionalidade de "ctrl+Z".
+
+No caso do exemplo, poderíamos guardar diretamente a lista de Contratos. Mas veja que isso depende do problema. No nosso caso, não tínhamos outra informação para associar ao "estado". Se tivéssemos que armazenar, por exemplo, a data que o estado foi salvo, a classe Estado faria sentido. Mas caso contrário poderíamos simplismente armazenar a classe `Contrato` na lista diretamente.
+
+Um possível problema deste padrão é a quantidade de memória que ele pode ocupar, afinal estamos guardando muitas instâncias de objetos que podem ser pesados.
+
+Por isso, dependendo do tamanho dos seus objetos, a classe Estado pode passar a guardar não o objeto todo, mas sim somente as propriedades que mais fazem sentido.
+
+Nada impede você também de limitar a quantidade máxima de objetos no histórico que será armazenado.
