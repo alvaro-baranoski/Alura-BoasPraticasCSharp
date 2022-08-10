@@ -7,19 +7,14 @@ using AppImposto.Aula09;
 using AppImposto.Aula10;
 using AppImposto.Aula11;
 using AppImposto.Aula12;
+using AppImposto.Aula13;
 
 public class TesteDeImpostos 
 {
     static void Main(String[] args) 
     {
-        // (1 + 10) + (20 - 10)
-        IExpressao esquerda = new Soma(new Numero(1), new Numero(10));
-        IExpressao direita = new Subtracao(new Numero(20), new Numero(10));
-        IExpressao soma = new Soma(esquerda, direita);
-
-        Console.WriteLine(soma.Avalia());
-
-        ImpressoraVisitor impressora = new ImpressoraVisitor();
-        soma.Aceita(impressora);
+        IEnviador enviador = new EnviaPorSms();
+        IMensagem mensagem = new MensagemAdmin("Alvaro", enviador);
+        mensagem.Envia();
     }
 }

@@ -125,3 +125,10 @@ O padrão Interpreter é geralmente útil para interpretar DSLs. É comum que, a
 Quando temos uma árvore, e precisamos navegar nessa árvore de maneira organizada, podemos usar um **Visitor**, que foi o padrão de projeto implementado nessa aula.
 
 A finalidade do visitor dentro do código é simplesmente percorrer toda a árvore de expressão para executar alguma lógica. Nesse capítulo, ele foi utilizado para imprimir as expressões, mas ele também poderia ser utilizado para realizar cálculos com a expressão ou qualquer outra tarefa que dependa do processamento dos nós de nossa árvore de expressão.
+
+### Aula 13
+Nessa solução estamos ligando duas hierarquias que possuem responsabilidades distintas através de composição de classes. Essa composição funciona como uma ponte entre as duas hierarquias de classes e, por isso, esse padrão é conhecido como **bridge**.
+
+Quando temos uma hierarquia de classes que é responsável por diversas características do sistema (formatação e envio da mensagem, no exemplo), podemos utilizar o padrão bridge para separar as características em diversas hierarquias ligando-as através da composição de classes.
+
+Na implementação do bridge que fizemos nesse capítulo, podemos ver que o bridge pode utilizar o strategy em sua implementação: a mensagem em seu método `Envia` utiliza o strategy para decidir qual é a estratégia de envio que será utilizada pela aplicação.
