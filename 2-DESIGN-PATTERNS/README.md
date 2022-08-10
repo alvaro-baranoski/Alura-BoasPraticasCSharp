@@ -132,3 +132,8 @@ Nessa solução estamos ligando duas hierarquias que possuem responsabilidades d
 Quando temos uma hierarquia de classes que é responsável por diversas características do sistema (formatação e envio da mensagem, no exemplo), podemos utilizar o padrão bridge para separar as características em diversas hierarquias ligando-as através da composição de classes.
 
 Na implementação do bridge que fizemos nesse capítulo, podemos ver que o bridge pode utilizar o strategy em sua implementação: a mensagem em seu método `Envia` utiliza o strategy para decidir qual é a estratégia de envio que será utilizada pela aplicação.
+
+### Aula 14
+O nome dessa padrão de projeto, que facilita a criação de comandos, chama-se **Command**. Usamos ele quando temos que separar os comandos que serão executados do objeto que ele pertence. Um bom exemplo disso é o uso de filas de trabalho.
+
+Podemos ser criativos e usar outros padrões de projeto de acordo com o problema que temos em mãos. Podemos usar Memento para restaurar estados de objetos que foram alterados por um Command.
