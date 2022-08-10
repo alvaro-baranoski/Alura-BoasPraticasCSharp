@@ -1,17 +1,15 @@
 ﻿using AppImposto.Aula15;
+using AppImposto.Aula16;
 
 public class TesteDeImpostos 
 {
     static void Main(String[] args) 
     {
-        Cliente cliente = new Cliente();
 
-        cliente.Nome = "Victor";
-        cliente.Endereco = "Rua Vergueiro";
-        cliente.DataNascimento = DateTime.Now;
-
-        String xml = new GeradorDeXml().GeraXml(cliente);
-
-        Console.WriteLine(xml);
+        EmpresaFacade facade = new EmpresaFacadeSingleton().Instancia();
+        // String cpf = "1234";
+        // Cliente cliente = facade.BuscarCliente(cpf);
+        // var fatura = facade.CriaFatura(cliente, 5000);
+        // facade.GeraCobranca(tipo.Boleto, fatura)
     }
 }

@@ -146,3 +146,17 @@ Essa classe `GeradorDeXml` é uma classe que tem a responsabilidade de adaptar o
 Utilizamos o adapter quando queremos adaptar o código de um sistema legado ou de uma biblioteca para que ele trabalhe corretamente com o sistema orientado a objetos que está sendo desenvolvido.
 
 Veja que a implementação do Adapter é muito parecida com a implementação do Command e do Strategy, a diferença está realmente no propósito do padrão, o problema que está sendo resolvido.
+
+### Aula 16
+Esse padrão de projeto, que provê uma "fachada" para os serviços disponibilizados pelos sub-sistemas, é conhecido pelo nome de **Facade**. Como essa classe provê acesso a todos os outros sub-sistemas, é bem comum também que não haja mais de uma instância dessa classe espalhada pelo sistema.
+
+Vamos resolver isso com uma única classe, que servirá de "fábrica", e sempre retornará a mesma instância... A implementação acima é o que chamamos de `Singleton`. Ele faz com que só exista uma única instância da classe em todo o sistema!
+
+Mas, apesar dos dois padrões serem bastante populares, seu uso deve ser feito com cautela. O Singleton, por exemplo, quando mal utilizado, acaba por permitir ao usuário a utilização de variáveis globais (que é uma coisa que a programação procedural já mostrou que é problemático). 
+
+Uma Facade tende a ser muito acoplada, e ter uma interface gorda. Facades menores podem até ser úteis, mas também devem ser usadas com parcimônia.
+
+RESUMINDO: O Singleton nos ajuda a ter uma única instância do objeto ao longo do sistema. E uma façade serve como uma frente única para os serviços disponibilizados por um ou mais sub-sistemas, provendo uma maneira mais simples para consumo do mesmo.
+
+
+
